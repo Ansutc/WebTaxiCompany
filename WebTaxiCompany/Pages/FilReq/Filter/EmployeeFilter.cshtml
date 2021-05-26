@@ -1,0 +1,33 @@
+﻿@page
+@model WebTaxiCompany.Pages.FilReq.Filter.EmployeeFilterModel
+@{
+    <h1>Отдел кадров</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee[0].PositionKey)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Employee)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Model.Position.Name
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

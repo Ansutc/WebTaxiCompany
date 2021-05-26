@@ -1,0 +1,84 @@
+﻿@page
+@model WebTaxiCompany.Pages.Calls.IndexModel
+
+@{
+    ViewData["Title"] = "Вызовы";
+}
+
+<h1>Вызовы</h1>
+
+<p>
+    <a asp-page="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].WhereFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].WhereTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].AddServiceKeyNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].CarKeyNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].EmployeeKeyNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Call[0].RateKeyNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Call) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddServiceKeyNavigation.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarKeyNavigation.SpecialMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeKeyNavigation.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateKeyNavigation.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NumKey">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.NumKey">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NumKey">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

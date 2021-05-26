@@ -1,0 +1,33 @@
+﻿@page
+@model WebTaxiCompany.Pages.FilReq.Filter.CallFilterModel
+@{
+    <h1>Список вызовов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Call[0].Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Call[0].RateKey)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Call)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Model.Rate.Name
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

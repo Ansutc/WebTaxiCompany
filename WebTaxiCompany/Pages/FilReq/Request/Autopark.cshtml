@@ -1,0 +1,58 @@
+﻿@page
+@model WebTaxiCompany.Pages.FilReq.Request.AutoparkModel
+@{
+    <h1>Список полисов</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Car[0].CarKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Car[0].BrandKey)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Car[0].EmployeeKey)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Car)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarKey)
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Brand.First(r => r.BrandKey == item.BrandKey).Name
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            try
+                            {
+                                @Model.Employee.First(r => r.EmployeeKey == item.EmployeeKey).FullName
+                            }
+                            catch
+                            {
+                                <p> Данных нет </p>
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

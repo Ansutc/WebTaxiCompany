@@ -1,0 +1,45 @@
+﻿@page
+@model WebTaxiCompany.Pages.AddServices.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Доп. услуга</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AddService.AddServiceKey" />
+            <div class="form-group">
+                <label asp-for="AddService.Name" class="control-label"></label>
+                <input asp-for="AddService.Name" class="form-control" />
+                <span asp-validation-for="AddService.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddService.Description" class="control-label"></label>
+                <input asp-for="AddService.Description" class="form-control" />
+                <span asp-validation-for="AddService.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddService.Cost" class="control-label"></label>
+                <input asp-for="AddService.Cost" class="form-control" />
+                <span asp-validation-for="AddService.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

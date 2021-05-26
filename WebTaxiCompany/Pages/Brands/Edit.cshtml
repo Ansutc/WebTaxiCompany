@@ -1,0 +1,50 @@
+﻿@page
+@model WebTaxiCompany.Pages.Brands.EditModel
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Марка</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Brand.BrandKey" />
+            <div class="form-group">
+                <label asp-for="Brand.Name" class="control-label"></label>
+                <input asp-for="Brand.Name" class="form-control" />
+                <span asp-validation-for="Brand.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand.Specifications" class="control-label"></label>
+                <input asp-for="Brand.Specifications" class="form-control" />
+                <span asp-validation-for="Brand.Specifications" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand.Cost" class="control-label"></label>
+                <input asp-for="Brand.Cost" class="form-control" />
+                <span asp-validation-for="Brand.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand.Specificity" class="control-label"></label>
+                <input asp-for="Brand.Specificity" class="form-control" />
+                <span asp-validation-for="Brand.Specificity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

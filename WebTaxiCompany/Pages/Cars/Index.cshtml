@@ -1,0 +1,90 @@
+﻿@page
+@model WebTaxiCompany.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Автомобили";
+}
+
+<h1>Автомобили</h1>
+
+<p>
+    <a asp-page="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].RegistrationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].BodNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].EngineNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].YearOfIssue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].MaintenanceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].SpecialMarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].BrandKeyNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].EmployeeKeyNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].MechanicKeyEmployeeKeyNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Car) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfIssue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaintenanceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandKeyNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeKeyNavigation.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MechanicKeyEmployeeKeyNavigation.Address)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CarKey">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.CarKey">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CarKey">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
